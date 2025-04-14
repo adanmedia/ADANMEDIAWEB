@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 10%;
+  --foreground: 0 0% 94%;
+
+  --card: 0 0% 13%;
+  --card-foreground: 0 0% 94%;
+
+  --popover: 0 0% 13%;
+  --popover-foreground: 0 0% 94%;
+
+  --primary: 25 100% 62%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 220 35% 33%;
+  --secondary-foreground: 0 0% 94%;
+
+  --muted: 0 0% 20%;
+  --muted-foreground: 0 0% 70%;
+
+  --accent: 215 32% 17%;
+  --accent-foreground: 0 0% 94%;
+
+  --destructive: 0 100% 50%;
+  --destructive-foreground: 0 0% 94%;
+
+  --border: 215 32% 17%;
+  --input: 215 32% 17%;
+  --ring: 25 100% 62%;
+
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 0 0% 10%;
+  --foreground: 0 0% 94%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Verbesserte Scrollbar für bessere UX */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ff7d3a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff9a66;
+}
+
+/* Verbesserte Textauswahl */
+::selection {
+  background: rgba(255, 125, 58, 0.3);
+  color: #ffffff;
+}
+
+/* Verbesserte Fokus-Stile für Barrierefreiheit */
+:focus {
+  outline: 2px solid #ff7d3a;
+  outline-offset: 2px;
+}
+
+/* Smooth Scrolling für die gesamte Seite */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Verbesserte Animation für Links */
+a {
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Verbesserte Schatten für Karten */
+.card-shadow {
+  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card-shadow:hover {
+  box-shadow: 0 20px 40px -20px rgba(255, 125, 58, 0.2);
+  transform: translateY(-5px);
+}
