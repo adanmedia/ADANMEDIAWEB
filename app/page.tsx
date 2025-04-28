@@ -5,9 +5,9 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
-import { toast } from "@/hooks/use-toast"
 import { useMobile } from "@/hooks/use-mobile"
 import { Mail } from "lucide-react"
+import { RocketContactForm } from "@/components/rocket-contact-form"
 
 // Particle Background Component
 const ParticleBackground = () => {
@@ -163,6 +163,7 @@ const ParticleBackground = () => {
 export default function Home() {
   const [isClient, setIsClient] = useState(false)
   const isMobile = useMobile()
+  const [contactModalOpen, setContactModalOpen] = useState(false)
 
   useEffect(() => {
     setIsClient(true)
@@ -255,12 +256,7 @@ export default function Home() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             animate={pulseAnimation}
-            onClick={() => {
-              toast({
-                title: "Kontaktanfrage",
-                description: "Vielen Dank für Ihr Interesse. Wir werden uns in Kürze bei Ihnen melden.",
-              })
-            }}
+            onClick={() => setContactModalOpen(true)}
           >
             <Button className="bg-[#FF7D3A] hover:bg-[#FF9A66] text-white border border-[#FF9A66]/50 shadow-[0_0_15px_rgba(255,125,58,0.5)]">
               <Mail className="mr-2 h-4 w-4" />
@@ -329,12 +325,7 @@ export default function Home() {
                       whileTap={{ scale: 0.95 }}
                       animate={pulseAnimation}
                       className="inline-block"
-                      onClick={() => {
-                        toast({
-                          title: "Kontaktanfrage",
-                          description: "Vielen Dank für Ihr Interesse. Wir werden uns in Kürze bei Ihnen melden.",
-                        })
-                      }}
+                      onClick={() => setContactModalOpen(true)}
                     >
                       <Button className="bg-[#FF7D3A] hover:bg-[#FF9A66] text-white border border-[#FF9A66]/50 shadow-[0_0_15px_rgba(255,125,58,0.5)]">
                         KONTAKT AUFNEHMEN
@@ -444,12 +435,7 @@ export default function Home() {
                     whileTap={{ scale: 0.95 }}
                     animate={pulseAnimation}
                     className="inline-block"
-                    onClick={() => {
-                      toast({
-                        title: "Kontaktanfrage",
-                        description: "Vielen Dank für Ihr Interesse. Wir werden uns in Kürze bei Ihnen melden.",
-                      })
-                    }}
+                    onClick={() => setContactModalOpen(true)}
                   >
                     <Button className="bg-[#FF7D3A] hover:bg-[#FF9A66] text-white border border-[#FF9A66]/50 shadow-[0_0_15px_rgba(255,125,58,0.5)]">
                       JETZT KONTAKTIEREN
@@ -512,6 +498,9 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Rocket Contact Form */}
+      <RocketContactForm open={contactModalOpen} onOpenChange={setContactModalOpen} />
     </div>
   )
 }
