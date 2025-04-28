@@ -52,14 +52,52 @@ export function RocketContactForm({ open, onOpenChange }: RocketContactFormProps
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setFormSubmitting(true)
 
-    // Start launch animation
+    // Validiere Formular auf Client-Seite
+    if (!formData.name || !formData.email || !formData.message) {
+      toast({
+        title: "Fehler",
+        description: "Bitte fülle alle erforderlichen Felder aus.",
+        variant: "destructive",
+      })
+      return
+    }
+
+    setFormSubmitting(true)
     setIsLaunching(true)
 
     try {
+      // Für Entwicklungszwecke: Simuliere erfolgreichen Versand, wenn kein API-Key vorhanden ist
+      if (process.env.NODE_ENV === "development") {
+        console.log("Development mode: Simulating email send", formData)
+
+        // Warte für Animation
+        setTimeout(() => {
+          setFormSubmitting(false)
+          toast({
+            title: "Nachricht gesendet! (Entwicklungsmodus)",
+            description: "Im Produktionsmodus würde diese Nachricht per E-Mail gesendet werden.",
+          })
+
+          // Reset form
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            message: "",
+            requestCallback: false,
+          })
+
+          // Close modal after rocket has "launched"
+          onOpenChange(false)
+        }, 1000)
+
+        return
+      }
+
       // Sende die Formulardaten an die Server Action
       const result = await sendContactEmail(formData)
+      console.log("Email send result:", result)
 
       if (result.success) {
         // Warte für Animation
@@ -95,6 +133,8 @@ export function RocketContactForm({ open, onOpenChange }: RocketContactFormProps
         }, 500)
       }
     } catch (error) {
+      console.error("Form submission error:", error)
+
       // Bei Ausnahme Animation stoppen und Fehler anzeigen
       setTimeout(() => {
         setIsLaunching(false)
