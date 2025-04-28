@@ -15,10 +15,13 @@ export interface ContactFormData {
 const resendApiKey = process.env.RESEND_API_KEY || "re_jRiGSWun_Hs8h3NXheYvw5mX7FgnBUKbX"
 const resend = new Resend(resendApiKey)
 
-// Im Testmodus kann Resend nur E-Mails an die E-Mail-Adresse des Kontoinhabers senden
+// Ändere die Konstanten für die E-Mail-Adressen
 const TEST_EMAIL = "julianfernandezkreis@gmail.com"
-// Für die Produktion: Verifiziere eine Domain bei Resend und ändere diese E-Mail-Adresse
 const PRODUCTION_EMAIL = "kontakt@adanmedia.de"
+const ADDITIONAL_EMAIL = "julianfernandezkreis@gmail.com"
+
+// Im Testmodus kann Resend nur E-Mails an die E-Mail-Adresse des Kontoinhabers senden
+// Für die Produktion: Verifiziere eine Domain bei Resend und ändere diese E-Mail-Adresse
 
 // Ändere die E-Mail-Versandmethode, um sowohl HTML als auch Text zu unterstützen
 export async function sendContactEmail(formData: ContactFormData) {
@@ -102,8 +105,8 @@ Diese E-Mail wurde automatisch vom Kontaktformular deiner Website gesendet.
 
     // Sende die E-Mail mit direktem HTML und Text-Fallback
     const { data, error } = await resend.emails.send({
-      from: "ADAN MEDIA <onboarding@resend.dev>",
-      to: [TEST_EMAIL],
+      from: "ADAN MEDIA <kontakt@adanmedia.de>",
+      to: [PRODUCTION_EMAIL, ADDITIONAL_EMAIL],
       subject: `Neue Kontaktanfrage von ${formData.name}`,
       html: htmlContent,
       text: textContent,
@@ -135,7 +138,7 @@ Dein ADAN MEDIA Team
 
     // Sende die Bestätigungs-E-Mail an den Absender
     const { data: confirmationData, error: confirmationError } = await resend.emails.send({
-      from: "ADAN MEDIA <onboarding@resend.dev>",
+      from: "ADAN MEDIA <kontakt@adanmedia.de>",
       to: [formData.email],
       subject: "Vielen Dank für deine Nachricht | ADAN MEDIA",
       html: confirmationHtmlContent,
