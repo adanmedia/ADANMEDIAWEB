@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react"
 
-export const useMobile = () => {
+// Primary hook implementation
+export const useIsMobile = () => {
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
@@ -10,14 +11,18 @@ export const useMobile = () => {
       setIsMobile(window.innerWidth < 768) // Adjust breakpoint as needed
     }
 
-    handleResize() // Initial check
+    // Set initial value
+    handleResize()
 
+    // Listen for window resize events
     window.addEventListener("resize", handleResize)
 
-    return () => {
-      window.removeEventListener("resize", handleResize)
-    }
+    // Remove event listener on cleanup
+    return () => window.removeEventListener("resize", handleResize)
   }, [])
 
   return isMobile
 }
+
+// Export the same function with both names for backward compatibility
+export const useMobile = useIsMobile
