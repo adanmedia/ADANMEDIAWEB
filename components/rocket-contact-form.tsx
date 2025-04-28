@@ -68,7 +68,7 @@ export function RocketContactForm({ open, onOpenChange }: RocketContactFormProps
 
     try {
       // Für Entwicklungszwecke: Simuliere erfolgreichen Versand, wenn kein API-Key vorhanden ist
-      if (process.env.NODE_ENV === "development") {
+      if (process.env.NODE_ENV === "development" && !process.env.RESEND_API_KEY) {
         console.log("Development mode: Simulating email send", formData)
 
         // Warte für Animation
@@ -96,6 +96,7 @@ export function RocketContactForm({ open, onOpenChange }: RocketContactFormProps
       }
 
       // Sende die Formulardaten an die Server Action
+      console.log("Sending form data:", formData)
       const result = await sendContactEmail(formData)
       console.log("Email send result:", result)
 
