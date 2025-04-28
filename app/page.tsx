@@ -160,6 +160,16 @@ const ParticleBackground = () => {
   )
 }
 
+// Ändere die pulseAnimation und buttonGlowStyle Definitionen
+const pulseAnimation = {
+  scale: [1, 1.05, 1],
+  transition: {
+    duration: 2,
+    repeat: Number.POSITIVE_INFINITY,
+    repeatType: "loop",
+  },
+}
+
 export default function Home() {
   const [isClient, setIsClient] = useState(false)
   const isMobile = useMobile()
@@ -170,27 +180,6 @@ export default function Home() {
   }, [])
 
   // Pulsierende Animation für CTA-Buttons
-  const pulseAnimation = {
-    scale: [1, 1.05, 1],
-    transition: {
-      duration: 2,
-      repeat: Number.POSITIVE_INFINITY,
-      repeatType: "loop",
-    },
-  }
-
-  const buttonGlowStyle = {
-    boxShadow: [
-      "0 0 15px rgba(255, 125, 58, 0.5)",
-      "0 0 20px rgba(255, 125, 58, 0.8)",
-      "0 0 15px rgba(255, 125, 58, 0.5)",
-    ],
-    transition: {
-      duration: 2,
-      repeat: Number.POSITIVE_INFINITY,
-      repeatType: "loop",
-    },
-  }
 
   const floatingAnimation = {
     y: ["-5px", "5px"],
@@ -260,18 +249,11 @@ export default function Home() {
           </motion.div>
 
           {/* Contact Button */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            animate={pulseAnimation}
-            onClick={() => setContactModalOpen(true)}
-          >
-            <motion.div animate={buttonGlowStyle}>
-              <Button className="bg-[#FF7D3A] hover:bg-[#FF9A66] text-white border border-[#FF9A66]/50">
-                <Mail className="mr-2 h-4 w-4" />
-                KONTAKT
-              </Button>
-            </motion.div>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={() => setContactModalOpen(true)}>
+            <Button className="bg-[#FF7D3A] hover:bg-[#FF9A66] text-white border border-[#FF9A66]/50 shadow-[0_0_15px_rgba(255,125,58,0.5)]">
+              <Mail className="mr-2 h-4 w-4" />
+              KONTAKT
+            </Button>
           </motion.div>
         </div>
       </motion.header>
@@ -333,15 +315,11 @@ export default function Home() {
                     <motion.div
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      animate={pulseAnimation}
-                      className="inline-block"
                       onClick={() => setContactModalOpen(true)}
                     >
-                      <motion.div animate={buttonGlowStyle}>
-                        <Button className="bg-[#FF7D3A] hover:bg-[#FF9A66] text-white border border-[#FF9A66]/50">
-                          KONTAKT AUFNEHMEN
-                        </Button>
-                      </motion.div>
+                      <Button className="bg-[#FF7D3A] hover:bg-[#FF9A66] text-white border border-[#FF9A66]/50 shadow-[0_0_15px_rgba(255,125,58,0.5)]">
+                        KONTAKT AUFNEHMEN
+                      </Button>
                     </motion.div>
                   </div>
                 </motion.div>
@@ -445,15 +423,11 @@ export default function Home() {
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    animate={pulseAnimation}
-                    className="inline-block"
                     onClick={() => setContactModalOpen(true)}
                   >
-                    <motion.div animate={buttonGlowStyle}>
-                      <Button className="bg-[#FF7D3A] hover:bg-[#FF9A66] text-white border border-[#FF9A66]/50">
-                        JETZT KONTAKTIEREN
-                      </Button>
-                    </motion.div>
+                    <Button className="bg-[#FF7D3A] hover:bg-[#FF9A66] text-white border border-[#FF9A66]/50 shadow-[0_0_15px_rgba(255,125,58,0.5)]">
+                      JETZT KONTAKTIEREN
+                    </Button>
                   </motion.div>
                 </motion.div>
               </motion.div>
