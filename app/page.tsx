@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { useMobile } from "@/hooks/use-mobile"
-import { Mail } from "lucide-react"
+import { Mail, Code, Palette, Megaphone, Smartphone, Globe, Zap } from "lucide-react"
 import { RocketContactForm } from "@/components/rocket-contact-form"
 
 // Particle Background Component
@@ -383,6 +383,273 @@ export default function Home() {
                 </motion.div>
               )}
             </div>
+          </div>
+        </section>
+
+        {/* Services Section */}
+        <section className="py-20 md:py-28 bg-[#151515] relative">
+          <div className="container px-4 md:px-6 relative">
+            <motion.div
+              className="text-center max-w-4xl mx-auto mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <motion.h2
+                className="text-3xl md:text-4xl font-bold mb-6"
+                whileHover={{ scale: 1.02, textShadow: "0 0 8px rgba(255, 125, 58, 0.5)" }}
+              >
+                Was wir für Sie erschaffen
+              </motion.h2>
+              <motion.p className="text-[#B0B0B0] text-lg mb-8" whileHover={{ color: "#F0F0F0" }}>
+                Von der ersten Idee bis zur finalen Umsetzung - wir verwandeln Ihre Vision in digitale Realität
+              </motion.p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Webdesign & Entwicklung */}
+              <motion.div
+                className="bg-[#121820] p-8 rounded-lg border border-[#2A4165]/30 group hover:border-[#FF7D3A]/50 transition-all duration-300"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                whileHover={{ y: -10, boxShadow: "0 20px 40px -20px rgba(255, 125, 58, 0.3)" }}
+              >
+                <motion.div
+                  className="w-16 h-16 bg-gradient-to-r from-[#FF7D3A] to-[#FF9A66] rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+                  whileHover={{ rotate: 5 }}
+                >
+                  <Code className="h-8 w-8 text-white" />
+                </motion.div>
+                <h3 className="text-xl font-bold text-[#F0F0F0] mb-4 group-hover:text-[#FF7D3A] transition-colors">
+                  Webdesign & Entwicklung
+                </h3>
+                <p className="text-[#B0B0B0] mb-6 leading-relaxed">
+                  Moderne, responsive Websites die begeistern. Von eleganten Landing Pages bis zu komplexen Web-Anwendungen - 
+                  wir entwickeln maßgeschneiderte Lösungen mit neuesten Technologien.
+                </p>
+                <ul className="text-sm text-[#B0B0B0] space-y-2">
+                  <li className="flex items-center">
+                    <Zap className="h-4 w-4 text-[#FF7D3A] mr-2" />
+                    Responsive Design für alle Geräte
+                  </li>
+                  <li className="flex items-center">
+                    <Zap className="h-4 w-4 text-[#FF7D3A] mr-2" />
+                    SEO-optimierte Entwicklung
+                  </li>
+                  <li className="flex items-center">
+                    <Zap className="h-4 w-4 text-[#FF7D3A] mr-2" />
+                    Schnelle Ladezeiten & Performance
+                  </li>
+                </ul>
+              </motion.div>
+
+              {/* Grafikdesign */}
+              <motion.div
+                className="bg-[#121820] p-8 rounded-lg border border-[#2A4165]/30 group hover:border-[#FF7D3A]/50 transition-all duration-300"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                whileHover={{ y: -10, boxShadow: "0 20px 40px -20px rgba(255, 125, 58, 0.3)" }}
+              >
+                <motion.div
+                  className="w-16 h-16 bg-gradient-to-r from-[#2A4165] to-[#3A5185] rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+                  whileHover={{ rotate: -5 }}
+                >
+                  <Palette className="h-8 w-8 text-white" />
+                </motion.div>
+                <h3 className="text-xl font-bold text-[#F0F0F0] mb-4 group-hover:text-[#FF7D3A] transition-colors">
+                  Grafikdesign & Branding
+                </h3>
+                <p className="text-[#B0B0B0] mb-6 leading-relaxed">
+                  Visuelle Identitäten, die im Gedächtnis bleiben. Wir gestalten Logos, Corporate Designs und 
+                  Marketingmaterialien, die Ihre Marke zum Leben erwecken.
+                </p>
+                <ul className="text-sm text-[#B0B0B0] space-y-2">
+                  <li className="flex items-center">
+                    <Zap className="h-4 w-4 text-[#FF7D3A] mr-2" />
+                    Logo & Corporate Identity
+                  </li>
+                  <li className="flex items-center">
+                    <Zap className="h-4 w-4 text-[#FF7D3A] mr-2" />
+                    Print- & Digitaldesign
+                  </li>
+                  <li className="flex items-center">
+                    <Zap className="h-4 w-4 text-[#FF7D3A] mr-2" />
+                    Brandbook & Styleguides
+                  </li>
+                </ul>
+              </motion.div>
+
+              {/* Social Media Marketing */}
+              <motion.div
+                className="bg-[#121820] p-8 rounded-lg border border-[#2A4165]/30 group hover:border-[#FF7D3A]/50 transition-all duration-300"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                whileHover={{ y: -10, boxShadow: "0 20px 40px -20px rgba(255, 125, 58, 0.3)" }}
+              >
+                <motion.div
+                  className="w-16 h-16 bg-gradient-to-r from-[#FF7D3A] to-[#2A4165] rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+                  whileHover={{ rotate: 5 }}
+                >
+                  <Megaphone className="h-8 w-8 text-white" />
+                </motion.div>
+                <h3 className="text-xl font-bold text-[#F0F0F0] mb-4 group-hover:text-[#FF7D3A] transition-colors">
+                  Social Media Marketing
+                </h3>
+                <p className="text-[#B0B0B0] mb-6 leading-relaxed">
+                  Strategische Social Media Präsenz, die Ihre Zielgruppe erreicht. Content-Erstellung, 
+                  Community Management und datengetriebene Kampagnen für maximale Reichweite.
+                </p>
+                <ul className="text-sm text-[#B0B0B0] space-y-2">
+                  <li className="flex items-center">
+                    <Zap className="h-4 w-4 text-[#FF7D3A] mr-2" />
+                    Content-Strategie & Planung
+                  </li>
+                  <li className="flex items-center">
+                    <Zap className="h-4 w-4 text-[#FF7D3A] mr-2" />
+                    Community Management
+                  </li>
+                  <li className="flex items-center">
+                    <Zap className="h-4 w-4 text-[#FF7D3A] mr-2" />
+                    Performance Analytics
+                  </li>
+                </ul>
+              </motion.div>
+
+              {/* Mobile App Entwicklung */}
+              <motion.div
+                className="bg-[#121820] p-8 rounded-lg border border-[#2A4165]/30 group hover:border-[#FF7D3A]/50 transition-all duration-300"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+                whileHover={{ y: -10, boxShadow: "0 20px 40px -20px rgba(255, 125, 58, 0.3)" }}
+              >
+                <motion.div
+                  className="w-16 h-16 bg-gradient-to-r from-[#2A4165] to-[#FF7D3A] rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+                  whileHover={{ rotate: -5 }}
+                >
+                  <Smartphone className="h-8 w-8 text-white" />
+                </motion.div>
+                <h3 className="text-xl font-bold text-[#F0F0F0] mb-4 group-hover:text-[#FF7D3A] transition-colors">
+                  Mobile App Entwicklung
+                </h3>
+                <p className="text-[#B0B0B0] mb-6 leading-relaxed">
+                  Native und Cross-Platform Apps, die Nutzer begeistern. Von der Konzeption bis zur 
+                  Veröffentlichung in den App Stores - wir realisieren Ihre App-Idee.
+                </p>
+                <ul className="text-sm text-[#B0B0B0] space-y-2">
+                  <li className="flex items-center">
+                    <Zap className="h-4 w-4 text-[#FF7D3A] mr-2" />
+                    iOS & Android Entwicklung
+                  </li>
+                  <li className="flex items-center">
+                    <Zap className="h-4 w-4 text-[#FF7D3A] mr-2" />
+                    Cross-Platform Lösungen
+                  </li>
+                  <li className="flex items-center">
+                    <Zap className="h-4 w-4 text-[#FF7D3A] mr-2" />
+                    App Store Optimierung
+                  </li>
+                </ul>
+              </motion.div>
+
+              {/* E-Commerce Lösungen */}
+              <motion.div
+                className="bg-[#121820] p-8 rounded-lg border border-[#2A4165]/30 group hover:border-[#FF7D3A]/50 transition-all duration-300"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.7 }}
+                whileHover={{ y: -10, boxShadow: "0 20px 40px -20px rgba(255, 125, 58, 0.3)" }}
+              >
+                <motion.div
+                  className="w-16 h-16 bg-gradient-to-r from-[#FF7D3A] to-[#FF9A66] rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+                  whileHover={{ rotate: 5 }}
+                >
+                  <Globe className="h-8 w-8 text-white" />
+                </motion.div>
+                <h3 className="text-xl font-bold text-[#F0F0F0] mb-4 group-hover:text-[#FF7D3A] transition-colors">
+                  E-Commerce Lösungen
+                </h3>
+                <p className="text-[#B0B0B0] mb-6 leading-relaxed">
+                  Professionelle Online-Shops, die verkaufen. Sichere Payment-Integration, 
+                  Inventory Management und optimierte User Experience für maximale Conversion.
+                </p>
+                <ul className="text-sm text-[#B0B0B0] space-y-2">
+                  <li className="flex items-center">
+                    <Zap className="h-4 w-4 text-[#FF7D3A] mr-2" />
+                    Shopify & WooCommerce
+                  </li>
+                  <li className="flex items-center">
+                    <Zap className="h-4 w-4 text-[#FF7D3A] mr-2" />
+                    Payment Gateway Integration
+                  </li>
+                  <li className="flex items-center">
+                    <Zap className="h-4 w-4 text-[#FF7D3A] mr-2" />
+                    Conversion Optimierung
+                  </li>
+                </ul>
+              </motion.div>
+
+              {/* SEO & Digital Marketing */}
+              <motion.div
+                className="bg-[#121820] p-8 rounded-lg border border-[#2A4165]/30 group hover:border-[#FF7D3A]/50 transition-all duration-300"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.8 }}
+                whileHover={{ y: -10, boxShadow: "0 20px 40px -20px rgba(255, 125, 58, 0.3)" }}
+              >
+                <motion.div
+                  className="w-16 h-16 bg-gradient-to-r from-[#2A4165] to-[#3A5185] rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+                  whileHover={{ rotate: -5 }}
+                >
+                  <Zap className="h-8 w-8 text-white" />
+                </motion.div>
+                <h3 className="text-xl font-bold text-[#F0F0F0] mb-4 group-hover:text-[#FF7D3A] transition-colors">
+                  SEO & Digital Marketing
+                </h3>
+                <p className="text-[#B0B0B0] mb-6 leading-relaxed">
+                  Sichtbarkeit, die sich auszahlt. Suchmaschinenoptimierung, Google Ads und 
+                  Content Marketing für nachhaltigen Online-Erfolg.
+                </p>
+                <ul className="text-sm text-[#B0B0B0] space-y-2">
+                  <li className="flex items-center">
+                    <Zap className="h-4 w-4 text-[#FF7D3A] mr-2" />
+                    On-Page & Off-Page SEO
+                  </li>
+                  <li className="flex items-center">
+                    <Zap className="h-4 w-4 text-[#FF7D3A] mr-2" />
+                    Google Ads & PPC
+                  </li>
+                  <li className="flex items-center">
+                    <Zap className="h-4 w-4 text-[#FF7D3A] mr-2" />
+                    Content Marketing
+                  </li>
+                </ul>
+              </motion.div>
+            </div>
+
+            {/* CTA Section */}
+            <motion.div
+              className="text-center mt-16"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.9 }}
+            >
+              <motion.p className="text-[#B0B0B0] mb-8 text-lg" whileHover={{ color: "#F0F0F0" }}>
+                Bereit für Ihr nächstes digitales Projekt?
+              </motion.p>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setContactModalOpen(true)}
+              >
+                <Button className="bg-[#FF7D3A] hover:bg-[#FF9A66] text-white border border-[#FF9A66]/50 shadow-[0_0_15px_rgba(255,125,58,0.5)] px-8 py-3 text-lg">
+                  PROJEKT STARTEN
+                </Button>
+              </motion.div>
+            </motion.div>
           </div>
         </section>
 
